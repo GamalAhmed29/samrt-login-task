@@ -58,6 +58,7 @@ img{
     background-color: rgb(36, 53, 63);
     color: white;
     border: none;
+    margin: 0 !important;
     font-family: "Castoro Titling", serif;
 }
 .logout-btn:hover{
@@ -82,19 +83,25 @@ img{
     font-family: "Castoro Titling", serif;
 }
  @media (max-width: 575.98px) {
+    
+    .my-form{
+        width: 100% !important;
+    }
+    
     .name-div{
-        width: 100%;
+        width: 100% !important;
         position: absolute;
         top: 40%;
+        left: 0%;
         height: 25%;
     }
     .name-div h2{
         position: absolute;
-        left: 10px;
+        left: 18%;
         top: 50%;
 
  }
  .logout-btn{
-    margin: -30px;
+    margin: 0 !important;
  }
 }
