@@ -1,0 +1,100 @@
+body{
+    background-color: rgb(36, 53, 63);
+    color: white;
+}
+
+.my-form{
+    box-shadow: -5px 2px 54px -9px  rgba(0, 0, 0, 1);
+     font-family: "Titillium Web", sans-serif;
+}
+.my-form h1{
+    color: rgb(23, 162, 184);
+    font-weight: bold;
+}
+.form-control{
+    background-color:rgb(36, 53, 63) !important ;
+    color: white !important;
+    padding: .375rem .75rem;
+    border: 1px solid rgb(206, 212, 218);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+
+}
+.form-control::placeholder{
+    color: white;
+}
+#signupName:focus {
+  border-color: #80BDFF; 
+   box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0); 
+}
+#signupEmail:focus {
+   border-color: #80BDFF;
+ box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0); 
+}
+#signupPassword:focus {
+   border-color:  #80BDFF; 
+  box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0); 
+}
+.my-form p a {
+    color: white;
+    text-decoration: none;
+}
+img{
+    width: 50px;
+}
+.navbar-nav{
+   display: flex;
+   justify-content: center;
+   font-size: 18px;
+
+   color: rgb(36, 53, 63) !important;
+
+}
+.navbar-brand{
+    font-size: 18px;
+    font-weight: bolder;
+    font-family: "Castoro Titling", serif;
+}
+.logout-btn{
+    background-color: rgb(36, 53, 63);
+    color: white;
+    border: none;
+    font-family: "Castoro Titling", serif;
+}
+.logout-btn:hover{
+    background-color: rgb(36, 53, 63);
+      color: white;
+}
+.nav-item a{
+     color: rgb(36, 53, 63) !important;
+     font-size: 18px;
+     font-weight: bold;
+     font-family: "Castoro Titling", serif;
+}
+.name-div {
+    height: 500px;
+    
+}
+.name-div h2{
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 40%;
+    font-family: "Castoro Titling", serif;
+}
+ @media (max-width: 575.98px) {
+    .name-div{
+        width: 100%;
+        position: absolute;
+        top: 40%;
+        height: 25%;
+    }
+    .name-div h2{
+        position: absolute;
+        left: 10px;
+        top: 50%;
+
+ }
+ .logout-btn{
+    margin: -30px;
+ }
+}
