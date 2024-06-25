@@ -3,12 +3,11 @@ let userEmail = document.getElementById("signupEmail");
 let userPassword = document.getElementById("signupPassword");
 
 function addUser() {
-  
-  let isUserNameValid = signValdition(userNameInput);
-  let isEmailValid = signValdition(userEmail);
-  let isPasswordValid = signValdition(userPassword);
+  let userNameError = signValdition(userNameInput);
+  let emailError = signValdition(userEmail);
+  let passwordError = signValdition(userPassword);
 
-  if (isUserNameValid && isEmailValid && isPasswordValid) {
+  if (!userNameError && !emailError && !passwordError) {
     let userInfo = JSON.parse(localStorage.getItem("info")) || [];
 
     let userExists = userInfo.some(
@@ -24,9 +23,8 @@ function addUser() {
       };
       userInfo.push(info);
       localStorage.setItem("info", JSON.stringify(userInfo));
-        console.log(userInfo);
-        window.location.href = "login.html";
-
+      console.log(userInfo);
+      window.location.href = "login.html";
     } else {
       Swal.fire({
         title: "Error",
@@ -36,9 +34,10 @@ function addUser() {
       });
     }
   } else {
+    let errorMessage = userNameError || emailError || passwordError;
     Swal.fire({
       title: "Validation Error",
-      text: "Please ensure all fields are correctly filled.",
+      text: errorMessage,
       icon: "warning",
       showCancelButton: false,
     });
@@ -47,13 +46,25 @@ function addUser() {
 
 function signValdition(input) {
   var regix = {
-    signupName: /^[a-zA-Z0-9._]{4,10}$/,
-    signupEmail: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|net)$/,
-    signupPassword: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=]).{8,}$/,
+    signupName: {
+      pattern: /^[a-zA-Z0-9._]{4,10}$/,
+      message:
+        "Username must be 4-10 characters long and can only contain letters, numbers, dots, and underscores.",
+    },
+    signupEmail: {
+      pattern: /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.(com|net)$/,
+      message: "Email must be valid and end with .com or .net.",
+    },
+    signupPassword: {
+      pattern: /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[@#$%^&+=]).{8,}$/,
+      message:
+        "Password must be at least 8 characters long, include uppercase and lowercase letters, a number, and a special character.",
+    },
   };
-  if (regix[input.id].test(input.value)) {
-    return true; // Validation passed
+
+  if (regix[input.id].pattern.test(input.value)) {
+    return null; 
   } else {
-    return false; // Validation failed
+    return regix[input.id].message; 
   }
 }

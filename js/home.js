@@ -3,9 +3,6 @@ function logoutUser() {
   window.location.href = "login.html"; 
 }
 
-
-
-
 document.addEventListener("DOMContentLoaded", function () {
   let loggedInUserName = localStorage.getItem("loggedInUserName");
   if (loggedInUserName) {
